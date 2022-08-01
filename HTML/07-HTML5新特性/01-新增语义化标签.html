@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            新增语义化标签
+                - <header> 头部标签
+                - <nav> 导航标签
+                - <article> 内容标签
+                - <section> 定义文档某个区域
+                - <aside> 侧边栏标签
+                - <footer> 尾部标签
+                - <main> 主体标签 用来指定文档中的主体部分 <main>元素的内容应当是独一无二的
+                - <address> 地址标签 用来提供某个人或某个组织的联系信息
+            注意：
+                - 这种语义化标准主要是针对搜索引擎的
+                - 这些新标签在页面中可以使用多次
+                - 在IE9中，需要把这些元素转换为块级元素
+                - 由于移动端基本不存在兼容性的问题，所以这些标签可以在移动端大量使用
+         */
+
+        main, header, nav, aside, section, article, footer, address {
+            height: 50px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>main标签</main>
+    <header>header标签</header>
+    <nav>nav标签</nav>
+    <aside>aside标签</aside>
+    <section>section标签</section>
+    <article>article标签</article>
+    <footer>footer标签</footer>
+    <address>address标签</address>
+</body>
+
+</html>

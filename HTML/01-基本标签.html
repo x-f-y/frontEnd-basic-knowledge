@@ -1,0 +1,61 @@
+<!-- 文档类型声明标签，表示当前页面采取的是HTML 5版本来显示网页 -->
+<!DOCTYPE html>
+<!-- lang="zh-CN"表示当前网页是中文网页 -->
+<html lang="zh-CN">
+
+<head>
+    <!-- charset="UTF-8"表示字符编码，尽量写成标准的形式（UTF-8），不要写成utf8或UTF8等其他形式 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本标签</title>
+</head>
+
+<body>
+    <!-- 标题标签 -->
+    <h1>我是一级标题标签</h1>
+    <h2>我是二级标题标签</h2>
+    <h3>我是三级标题标签</h3>
+    <h4>我是四级标题标签</h4>
+    <h5>我是五级标题标签</h5>
+    <h6>我是六级标题标签</h6>
+    <!-- 段落标签 -->
+    <p>我是段落一</p>
+    <p>我是段落二</p>
+    <!-- 换行标签 单标签 -->
+    <br />
+    <!-- 文本格式化标签 加粗 倾斜 删除线 下划线 -->
+    我是<strong>加粗</strong>的文字
+    我是<b>加粗</b>的文
+    我是<em>倾斜</em>的文
+    我是<i>倾斜</i>的文字
+    我是<del>删除线</del>
+    我是<s>删除线</s>
+    我是<ins>下划线</ins>
+    我是<u>下划线</u>
+    <!-- 盒子 div标签和span标签 -->
+    <!-- 一行可以放多个span标签，但只能放一个div标签 -->
+    <div>我是div标签，我一个人独占一行</div>
+    <div>我是div标签，我一个人独占一行</div>
+    <span>新浪</span>
+    <span>百度</span>
+    <span>微博</span>
+    <!-- 
+        图像标签 img 单标签 alt属性-图像不能正常显示时的替换文字 title属性-提示文本，鼠标放到图像上提示的文字 
+        其他常用的属性：src width height（width和height只需设置一个，图像就会等比例缩放，且其单位可以省略，不加单位默认是px）
+        src属性是img标签必须要有的
+    -->
+    <img src="../../demo/img/4.jpg" alt="这是我的头像" title="我的头像" width="50" />
+    <!-- 
+        超链接标签 a href属性是该标签必须要有的 target属性-打开网页的方式，默认是_self,在当前标签页中打开,其值为_blank时表示
+        在新的标签页中打开页面 herf属性可以是外部链接、内部链接、空链接（#，表示链接当前页面）、下载链接、网页元素链接（如图片链接）
+        和锚点链接（点击链接时，可以快速定位到页面中的某个位置 使用方法：herf="#目标位置标签的id属性值"）
+        和img标签一样，a标签也可以添加title属性来指定鼠标移动到a标签时的提示信息
+    -->
+    <a href="http://www.baidu.com" target="_blank">我是一个超链接</a>
+    <a href="http://www.baidu.com"><img src="../../demo/img/1.jpg" height="50" /></a>
+    <!-- 特殊字符 -->
+    <p>这是一个&nbsp;&lt;p&gt;&nbsp;标签</p>
+</body>
+
+</html>

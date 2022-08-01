@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Symbol.prototype.description --> 返回 Symbol 对象的可选描述的字符串
+         */ 
+        let sb = Symbol('xfy')
+        console.log(sb.description) // xfy
+        let sb2 = Symbol.for('xyc')
+        console.log(sb2.description) // xyc
+
+        /**
+         * 可选链操作符 ?.
+         */ 
+        function main(config) {
+            // 获取db中的host属性 传统方法
+            // const dbHost = config && config.db && config.db.host
+            // 获取db中的host属性 使用可选链操作符
+            const dbHost = config ?. db ?. host
+            console.log(dbHost)
+        }
+        main({
+            db: {
+                host: '192.168.1.100',
+                username: 'root'
+            },
+            cache: {
+                host: '192.168.1.200',
+                username: 'admin'
+            }
+        }) // 192.168.1.100
+
+        /**
+         * 绝对全局变量globalThis
+         *  该变量在不同的环境下，始终指向该环境的全局对象
+         */ 
+        console.log(globalThis) // Window
+    </script>
+</body>
+</html>

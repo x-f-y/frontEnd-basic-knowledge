@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格标签</title>
+</head>
+
+<body>
+    <!-- 
+        th是表头（table head）单元格标签，其中的内容会加粗居中显示 
+        thead 表格的头部区域 thead内部必须有<tr>标签
+        tbody 表格的主体区域
+    -->
+    <!-- 
+        table属性：
+        align       规定表格相对周围元素的对齐方式
+        border      规定表格单元是否拥有边框，默认为""，表示没有边框
+        cellpadding 规定单元边沿与其内容之间的空白
+        cellspacing 规定单元格之间的空白
+        width
+        height
+     -->
+    <table width="300" height="400" align="center" border="1" cellpadding="25" cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>刘德华</td>
+                <td>男</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>张学友</td>
+                <td>男</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>郭富城</td>
+                <td>男</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>黎明</td>
+                <td>男</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <!-- 
+        合并单元格：
+            合并方式：跨行合并（rowspan="合并单元格的数量"）和跨列合并（colspan="合并单元格的数量"）
+            - 若是跨行合并，则最上侧单元格为目标单元格，写合并代码
+            - 若是跨列合并，则最左侧单元格为目标单元格，写合并代码
+            合并单元格的步骤：    
+            - 1、确定是跨行合并还是跨列合并
+            - 2、找到目标单元格，写上合并方式=合并的单元格数量
+            - 3、删除多余的单元格
+     -->
+    <table border="1" cellspacing="0" width="400" height="200" align="center">
+        <tr>
+            <td></td>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td rowspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>

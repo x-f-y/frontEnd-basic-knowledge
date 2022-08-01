@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Number.isNaN() --> 判断传递的值是否是 NaN
+        console.log(Number.isNaN(NaN)) // true
+        console.log(Number.isNaN(0 / 0)) // true
+        console.log(Number.isNaN(Infinity)) // false
+        console.log(Number.isNaN(null)) // false
+        console.log(Number.isNaN(undefined)) // false
+
+        // Number.isFinite() --> 判断传递的值是否是有限数
+        console.log(Number.isFinite(NaN)) // false
+        console.log(Number.isFinite(Infinity)) // false
+        console.log(Number.isFinite(-Infinity)) // false
+        console.log(Number.isFinite(1 / 0)) // false
+        console.log(Number.isFinite(null)) // false
+        console.log(Number.isFinite(undefined)) // false
+
+        // Number.isInteger() --> 判断传递的值是否是整数
+        console.log(Number.isInteger(NaN)); // false
+        console.log(Number.isInteger(0.1)); // false
+        console.log(Number.isInteger(Math.PI)); // false
+        console.log(Number.isInteger(Infinity)); // false
+        console.log(Number.isInteger(-Infinity)); // false
+        console.log(Number.isInteger("10")); // false
+        console.log(Number.isInteger(true)); // false
+        console.log(Number.isInteger([1]));  // false
+        console.log(Number.isInteger(null)) // false
+        console.log(Number.isInteger(undefined)) // false
+
+        // Number.isSafeInteger() --> 判断传递的值是否是安全整数（-(2^53 - 1) 至 (2^53 - 1)）
+        console.log(Number.isSafeInteger(2 ** 53)) // false
+        console.log(Number.isSafeInteger(2 ** 53 - 1)) // true
+        console.log(Number.isSafeInteger(Infinity)) // false
+        console.log(Number.isSafeInteger(NaN)) // false
+
+        // Number.parseInt() 和 Number.parseFloat() （ES5 中将其作为独立的方法，而 ES6 中将其封装为 Number 的属性）
+        // 使用方法和全局的 parseInt()、parseFloat() 一样
+        console.log(Number.parseInt('123abc')) // 123
+        console.log(Number.parseInt('abc')) // NaN
+        console.log(Number.parseFloat('123.34abc')) // 123.34
+
+        // Number.EPSILON --> JavaScript表示的最小精度 其值等于2**(-52) 通常用于浮点数的运算
+        function equal(a, b) {
+            if (Math.abs(a - b) < Number.EPSILON) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(0.1 + 0.2 === 0.3); // false
+        console.log(equal(0.1 + 0.2, 0.3)); // true
+</script>
+</body>
+</html>

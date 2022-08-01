@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            E:first-child    匹配父元素中的第一个子元素E
+            E:last-child     匹配父元素中的最后一个子元素E
+            E:nth-child(n)   匹配父元素中的第n个子元素E
+            E:first-of-type  指定类型E的第一个
+            E:last-of-type   指定类型E的最后一个
+            E:nth-of-type(n) 指定类型E的第n个
+            注意：n可以是数字、关键字（even（偶数）|odd（奇数））和公式
+         */
+        /* 
+            nth-child和nth-of-type的区别：
+                - nth-child对父元素里面的所有子元素进行排序选择（序号是固定的）。先找到第n个孩子，然后再看是否和E匹配
+                - nth-of-type对父元素里面指定的子元素进行排序选择。先去匹配E，然后再根据E找第n个孩子
+         */
+        /* 
+            n如果是数字，就是选择第n个子元素（从1开始）
+            n如果是关键字，even代表偶数，odd代表奇数
+            n如果是公式，则n从0开始，每一次加1，但是第0个元素或者超出的元素会被忽略，且n不能用其他字母替代
+            常见公式：
+                - 2n 偶数
+                - 2n+1 奇数
+                - 5n 5、10、15、...
+                - n+5 从第5个开始（包含第5个），直到最后一个元素
+                - -n+5 从第5个开始（包含第5个），直到第一个元素
+         */
+        /* 选择ul的第一个li孩子 */
+        ul li:first-child {
+            color: pink;
+        }
+
+        /* 选择ul的最后一个li孩子 */
+        ul li:last-child {
+            color: red;
+        }
+
+        /* 选择ul的第三个li孩子 */
+        ul li:nth-child(3) {
+            color: #bfa;
+        }
+
+        /* 选择ol的偶数li孩子 */
+        /* ol li:nth-child(even) {
+            background-color: orange;
+        } */
+
+        /* 选择ol的奇数li孩子 */
+        /* ol li:nth-child(odd) {
+            background-color: orangered;
+        } */
+
+        /* 选择ol的偶数li孩子 */
+        /* ol :nth-child(2n) {
+            background-color: orange;
+        } */
+
+        /* 选择ol的奇数li孩子 */
+        /* ol li:nth-child(2n+1) {
+            background-color: orangered;
+        } */
+
+        /* 选择ol的6-8个li孩子 */
+        ol li:nth-child(n+6) {
+            background-color: orchid;
+        }
+
+        /* 选择ol的1-4个li孩子 */
+        ol li:nth-child(-n+4) {
+            background-color: peru;
+        }
+
+        /* 匹配失败 */
+        section div:nth-child(1) {
+            background-color: red;
+        }
+
+        /* 匹配成功 */
+        section div:nth-of-type(1) {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+    <ol>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ol>
+    <section>
+        <p>光头强</p>
+        <div>熊大</div>
+        <div>熊二</div>
+    </section>
+</body>
+
+</html>

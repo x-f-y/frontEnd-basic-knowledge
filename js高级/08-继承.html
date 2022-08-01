@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/**
+			 * 方式一：原型链继承
+			 * 	关键：
+			 * 		- 子类型的原型为父类型的一个实例对象
+			 * 方式二：借用构造函数继承(假的)
+			 * 	关键：
+			 * 		- 在子类型的构造函数中通过call()方法来调用父类型的构造函数
+			 * 方式三：组合继承
+			 * 	关键：
+			 * 		- 利用原型链实现对父类型对象方法的继承
+			 * 		- 利用call()借用父类型的构造函数来初始化共同的属性
+			 */
+			
+			/* 方式一 */
+			/* //父类型
+			function Supper(){
+				this.supProp = 'Supper property';
+			}
+			//子类型
+			function Sub(){
+				this.subProp = 'Sub property';
+			}
+			//实现继承关键：子类型的原型为父类型的一个实例对象
+			Sub.prototype = new Supper();
+			//继承之后，子类型的实例对象的constructor属性指向父类型，这样不好
+			Sub.prototype.constructor = Sub; // 修正子类型的显式原型的constructor属性指向子类型
+			Supper.prototype.showSupperProp = function(){
+				console.log(this.supProp);
+			}
+			Sub.prototype.showSubProp = function(){
+				console.log(this.subProp);
+			}
+			//创建子类型的实例对象
+			var sub = new Sub();
+			console.log(sub.subProp) // Sub property
+			console.log(sub.supProp) // Supper property
+			sub.showSubProp() // Sub property
+			sub.showSupperProp(); // Supper property */
+			
+			/* 方式二 */
+			/* function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			function Student(name,age,price){
+				Person.call(this,name,age);//相当于this.Person(name,age)
+				this.price = price;
+			}
+			var stu = new Student('张三',12,12000);
+			console.log(stu); */
+			
+			/* 方式三 */
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			function Student(name,age,price){
+				Person.call(this,name,age);//为了继承父类型的属性
+				this.price = price;
+			}
+			Student.prototype = new Person;//为了继承父类型的方法
+			Student.prototype.constructor = Student;//修正constructor的指向
+			Person.prototype.setName = function(name){
+				this.name = name;
+			}
+			Student.prototype.setPrice = function(price){
+				this.price = price;
+			}
+			var stu = new Student('张三',12,12000);
+			stu.setName('李四');
+			stu.setPrice(13000);
+			console.log(stu);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

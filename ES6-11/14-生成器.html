@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Generator生成器
+         *  - 生成器其实就是一个特殊的函数，是异步编程的一种解决方案
+         *  - 生成器的返回结果是一个迭代器（实现了Iterator接口），可以调用next()方法
+         */ 
+
+        /**
+         * yield关键字
+         *  - 语法：[result] = yield [表达式] 
+         *  - 一旦遇到 yield 表达式，生成器的代码将被暂停运行，直到生成器的 next() 方法被调用
+         */
+
+        // 定义一个生成器 
+        function* gen(){
+            console.log(1)
+            yield '状态1'
+            console.log(2)
+            yield '状态2'
+            console.log(3)
+            yield('状态3')
+            console.log(4)
+        }
+        let iterator = gen()
+        console.log(iterator)
+        console.log(iterator.next()) // 1 {value: '状态1', done: false}
+        console.log(iterator.next()) // 2 {value: '状态2', done: false}
+        console.log(iterator.next()) // 3 {value: '状态3', done: false}
+        console.log(iterator.next()) // 4 {value: undefined, done: true}
+        for(let v of gen()){
+            console.log(v) // 1 状态1   2 状态2   3 状态3   4
+        }
+
+        /**
+         * 生成器的参数传递
+         *  next()方法可以传递参数，其传递的实参将作为上一次调用yield的返回值
+         */ 
+
+        function* gen1(arg){
+            console.log(arg)
+            let one = yield 111
+            console.log(one)
+            let two = yield 222
+            console.log(two)
+            let three = yield 333
+            console.log(three)
+        }
+        let iterator1 = gen1('AAA')
+        console.log(iterator1.next()) // AAA {value: 111, done: false}
+        console.log(iterator1.next('BBB')) // BBB {value: 222, done: false}
+        console.log(iterator1.next('CCC')) // CCC {value: 333, done: false}
+        console.log(iterator1.next('DDD')) // DDD {value: undefined, done: true}
+        </script>
+</body>
+</html>

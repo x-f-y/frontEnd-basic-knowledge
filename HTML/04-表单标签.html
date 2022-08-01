@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单标签</title>
+</head>
+
+<body>
+    <!-- 在HTML中，一个完整的表单通常由表单域、表单控件（表单元素）和提示信息3个部分构成 -->
+    <!-- 
+        表单域标签 form 它会把它范围内的表单元素信息提交给服务器
+        - action属性 用于指定接受并处理表单数据的服务器程序的url地址
+        - method属性 用于设置表单数据的提交方式，其取值为get或post
+        - name属性 用于指定表单的名称，以区分同一个页面中的多个表单域
+    -->
+    <!-- 
+        表单控件（表单元素）分为：
+        - input输入表单元素
+        - select下拉表单元素
+        - textarea 文本域元素
+     -->
+    <!-- 
+         input标签 单标签 属性如下：
+         - 1、type（text、password、radio、checkbox、submit、reset、button、file、hidden（定义隐藏的输入字段）、
+             image（定义图像形式的提交按钮））
+         - 2、name 规定input元素的名称
+         - 3、value 规定input元素的值
+         - 4、checked 规定此input元素首次加载时应当被选中
+         - 5、maxlength 规定输入字段中的字符的最大长度
+         - 6、placeholder
+         注意：
+         1、name和value是每个表单元素都有的属性值，主要给后台人员使用
+         2、对于单选框radio和复选框checkbox，必须要有相同的name值
+      -->
+    <!-- 
+        label标签
+        label标签为input元素定义标注（标签），用于绑定一个表单元素，当点击<label>标签内的文本时，浏览器就会
+        自动将焦点（光标）转到或者选择对应的表单元素上，用来增加用户体验
+        使用方法：
+        - 1、使用for属性将label绑定到一个元素 for属性应当与相关元素的id属性相同
+        - 2、直接在label元素内部放置元素
+     -->
+    <form action="" method="post" name="userinfo">
+        <label for="name">用户名：</label><input id="name" type="text" name="username" value="" placeholder="请输入用户名"
+            maxlength="6" /><br />
+        密码：<input type="password" name="password" /><br />
+        性别：<label for="nan">男</label><input id="nan" type="radio" name="sex" value="male" checked="checked" />
+        <label for="nv">女</label><input id="nv" type="radio" name="sex" value="female" /><br />
+        爱好：<label>抽烟<input type="checkbox" name="hobby" value="smoke" checked="checked" /></label>
+        <label>喝酒<input type="checkbox" name="hobby" value="drink" /></label>
+        <label>烫头<input type="checkbox" name="hooby" value="tangtou /"></label><br />
+        <input type="button" value="获取短信验证码" /><br />
+        上传头像：<input type="file" /><br />
+        <!-- select标签 注意：在<option>中定义selected="selected"时，当前项即为默认选中选项 -->
+        籍贯：<select name="jiguan">
+            <option>--请选择籍贯--</option>
+            <option value="shandong">山东</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="shenzhen">深圳</option>
+        </select><br />
+        <!-- 
+            文本域标签 textarea 属性：cols、rows和placeholder，实际开发中不会使用cols和rows属性，都是通过css来改变大小的 
+        -->
+        个人简介：<textarea placeholder="请输入个人简介" name="introduction" cols="30" rows="4"></textarea><br />
+        <input type="submit" value="提交注册" />
+        <input type="reset" value="重新填写" />
+    </form>
+</body>
+
+</html>
