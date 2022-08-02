@@ -25,7 +25,7 @@
 			console.log(m1);
 			console.log(m2);
 			console.log(m3);
-			m3.default.change(); */
+			m3.default.change(); // 多了一层default */
 			
 			//2.解构赋值形式
 			/* import {school,teach} from './module/module1.js';
@@ -37,11 +37,14 @@
 			console.log(teach);
 			console.log(guigu);
 			console.log(findJob);
-			console.log(m3); */
+			console.log(m3.school);
+			console.log(m3.change) */
 			
 			//3.简便形式（只针对于默认暴露）
 			/* import m3 from './module/module3.js';
-			console.log(m3); */
+			console.log(m3);
+			console.log(m3.school)
+			console.log(m3.change) */
 		</script>
 		<!-- 第二种可使用的引入方式 引入入口文件 在入口文件中写引入代码 -->
 		<script type="module" src="./module/app.js"></script>
